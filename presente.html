@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Fantástica Fábrica de Chocolate</title>
+  <style>
+    body {
+      background-color: #8B4513; /* Marrom escuro para parecer chocolate ao leite */
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+
+    #ticket {
+      cursor: pointer;
+      border: 5px solid #ffd700; /* Cor dourada para a borda do ticket */
+      border-radius: 10px; /* Borda arredondada */
+    }
+
+    #ticket:hover {
+      opacity: 0.8; /* Opacidade reduzida ao passar o mouse para dar feedback visual */
+    }
+  </style>
+</head>
+<body>
+  <h1>Bem-vindo à Fábrica de Chocolate!</h1>
+
+  <div id="ticket" onclick="revelarCodigo()">
+    <img src="ticket.png" alt="Ticket Dourado">
+  </div>
+
+  <audio id="musica" src="musica.mp3"></audio>
+
+  <script>
+    // Substitua "seu_codigo_aqui" pelo código real do Gift Card
+    const codigoGiftCard = "seu_codigo_aqui";
+    const respostaCorreta = "Deliveroo";
+
+    // Função para revelar o código ao clicar no ticket e iniciar a música
+    function revelarCodigo() {
+      // Inicia a música
+      document.getElementById('musica').play();
+
+      // Adia a execução da função por 5 segundos para permitir que a música continue tocando
+      setTimeout(function() {
+        // Pede para o usuário digitar a resposta
+        const respostaUsuario = prompt("O seu presente será usado dentro do Coelho Azul que anda pela cidade inteira de Dublin. Qual o nome desse Coelho Azul?");
+        
+        // Verifica se a resposta está correta
+        if (respostaUsuario && respostaUsuario.toLowerCase() === respostaCorreta.toLowerCase()) {
+          // Se a resposta estiver correta, exibe o pop-up com o código
+          alert(`Parabéns! Você acertou!!!: ${codigoGiftCard}`);
+        } else {
+          // Se a resposta estiver incorreta, permite outra tentativa
+          alert("Resposta incorreta. Tente novamente!");
+        }
+      }, 5000); // 5000 milissegundos = 5 segundos
+    }
+  </script>
+</body>
+</html>
